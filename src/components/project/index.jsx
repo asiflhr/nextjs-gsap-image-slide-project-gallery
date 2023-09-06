@@ -1,7 +1,7 @@
 'use client'
 import styles from './style.module.css';
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 const anim = {
     initial: {width: 0},
@@ -9,7 +9,7 @@ const anim = {
     closed: {width: 0}
 }
 
-export default function index({project}) {
+export default function Project({project}) {
 
     const [isActive, setIsActive] = useState(false);
 
@@ -18,7 +18,7 @@ export default function index({project}) {
         <div onMouseEnter={() => {setIsActive(true)}} onMouseLeave={() => {setIsActive(false)}} className={styles.project}>
             <p>{title1}</p>
             <motion.div variants={anim} animate={isActive ? "open" : "closed"} className={styles.imgContainer}>
-                <img src={`/medias/${src}`}></img>
+                <img src={`/medias/${src}`} alt='projects'></img>
             </motion.div>
             <p>{title2}</p>
         </div>
